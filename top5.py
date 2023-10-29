@@ -62,7 +62,6 @@ def main(
 
         # spliting tracks in chunks of 100 items
         # because there's a limit of 100 tracks for one request
-
         chunk_size = 100
         chunks = [tracks[i:i + chunk_size]
                   for i in range(0, len(tracks), chunk_size)]
@@ -87,7 +86,8 @@ def get_artist_id(artist_name: str) -> str:
     # fmt: on
     result = spotify_client.search(
         q=search_artist, limit=1, type="artist", market=MARKET)
-    return result["artists"]["items"][0]["id"]
+    artist_id = result["artists"]["items"][0]["id"]
+    return artist_id
 
 
 def get_top_tracks(artist_id: str) -> list:
