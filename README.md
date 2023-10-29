@@ -1,6 +1,6 @@
-# Top 5 Playlist
+# Top 5 Spotify Playlist
 
-This CLI tool will create a playlist with the top 5 songs from all artists stored in a text file. See [sample_bands.txt](sample_bands.txt)
+This CLI tool will create a [Spotify](https://spotify.com) playlist with the top 5 songs from all artists stored in a text file. See [sample_bands.txt](sample_bands.txt)
 
 ## Usage
 
