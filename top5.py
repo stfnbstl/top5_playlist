@@ -60,8 +60,16 @@ def main(
             public=True
         )
 
-        spotify_client.playlist_add_items(
-            playlist_id=new_playlist["id"], items=tracks)
+        # spliting tracks in chunks of 100 items
+        # because there's a limit of 100 tracks for one request
+
+        chunk_size = 100
+        chunks = [tracks[i:i + chunk_size]
+                  for i in range(0, len(tracks), chunk_size)]
+
+        for chunk in chunks:
+            spotify_client.playlist_add_items(
+                playlist_id=new_playlist["id"], items=chunk)
     else:
         confirm = typer.confirm(
             "The playlist already exists. Proceeding will delete all its contents and replace them. Proceed?",
