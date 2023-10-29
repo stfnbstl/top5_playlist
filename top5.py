@@ -1,9 +1,9 @@
-import math
 import os
+
 import spotipy
 import typer
 from dotenv import load_dotenv
-from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
+from spotipy.oauth2 import SpotifyOAuth
 from typing_extensions import Annotated
 
 load_dotenv()
