@@ -13,7 +13,9 @@
                 "--filename",
                 "sample_bands.txt",
                 "--playlist",
-                "Summer Breeze 2024"
+                "Test_SB24",
+                "--description",
+                "Top 5 Songs for every band playing at Summer Breeze 2024"
             ],
             "console": "integratedTerminal",
             "justMyCode": true
