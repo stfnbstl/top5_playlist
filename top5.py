@@ -143,7 +143,7 @@ def get_all_user_playlists() -> list:
     return all_playlists
 
 
-def get_all_tracks_playlist(playlist_id: str) -> dict:
+def get_all_tracks_playlist(playlist_id: str) -> list:
     all_tracks = []
     offset = 0
     batch_size = 50
