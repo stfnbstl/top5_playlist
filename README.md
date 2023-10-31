@@ -4,4 +4,6 @@ This quick & dirty CLI tool will create a [Spotify](https://spotify.com) playlis
 
 ## Usage
 
+<img src="assets/term-sheet-1698745886126.svg">
+
 > TODO
