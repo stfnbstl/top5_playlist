@@ -3,6 +3,7 @@ import os
 
 import spotipy
 import typer
+from rich.progress import track
 from dotenv import load_dotenv
 from spotipy.oauth2 import SpotifyOAuth
 from typing_extensions import Annotated
@@ -40,11 +41,11 @@ def main(
     with open(file=filename) as f:
         search_artists = f.readlines()
 
-    for search_artist in search_artists:
+    for search_artist in track(search_artists, description="Getting Artist IDs"):
         artists.append(get_artist_id(
             artist_name=search_artist.replace("\n", "")))
 
-    for artist_id in artists:
+    for artist_id in track(artists, description="Getting top tracks"):
         tracks = tracks + get_top_tracks(artist_id=artist_id)
 
     all_user_playlists = get_all_user_playlists()
@@ -88,7 +89,7 @@ def main(
     chunks = [tracks[i:i + chunk_size]
               for i in range(0, len(tracks), chunk_size)]
 
-    for chunk in chunks:
+    for chunk in track(chunks, description="Adding Songs"):
         spotify_client.playlist_add_items(
             playlist_id=work_playlist["id"], items=chunk)
 
