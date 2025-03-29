@@ -111,8 +111,10 @@ def get_artist_id(artist_name: str) -> str:
     result = spotify_client.search(
         q=search_artist, limit=10, type="artist", market=MARKET)
     #artist_id = result["artists"]["items"][0]["id"]
-    artist_id = result.get("artists", {}).get(
-        "items", [{}])[0].get("id", None)
+    items = result.get("artists", {}).get("items", [])
+    if not items:
+        raise ValueError(f"No artist found for the name: {artist_name}")
+    artist_id = items[0].get("id", None)
 
     return artist_id
 
