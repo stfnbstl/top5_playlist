@@ -126,8 +126,8 @@ def get_artist_id(artist_name: str) -> str:
 def get_top_tracks(artist_id: str) -> list:
     tracks = []
     result = spotify_client.artist_top_tracks(artist_id=artist_id, country=MARKET)
-    for track in result["tracks"][:5]:
-        tracks.append(track["uri"])
+    for top_track in result["tracks"][:5]:
+        tracks.append(top_track["uri"])
 
     return tracks
 
